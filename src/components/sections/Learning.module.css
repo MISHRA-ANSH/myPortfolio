@@ -1,0 +1,239 @@
+.learning {
+    padding: 100px 20px;
+    background: linear-gradient(180deg, transparent 0%, rgba(102, 126, 234, 0.03) 50%, transparent 100%);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.sectionLabel {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-purple);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0 0 16px 0;
+}
+
+.subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.learningGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.learningCard {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    padding: 35px;
+    backdrop-filter: blur(20px);
+    transition: all var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.learningCard:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(102, 126, 234, 0.3);
+    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.iconWrapper {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-gradient);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+}
+
+.icon {
+    font-size: 28px;
+}
+
+.status {
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.inprogress {
+    background: rgba(67, 233, 123, 0.1);
+    color: var(--accent-green);
+    border: 1px solid rgba(67, 233, 123, 0.3);
+}
+
+.planning {
+    background: rgba(245, 87, 108, 0.1);
+    color: var(--accent-pink);
+    border: 1px solid rgba(245, 87, 108, 0.3);
+}
+
+.ongoing {
+    background: rgba(79, 172, 254, 0.1);
+    color: var(--accent-blue);
+    border: 1px solid rgba(79, 172, 254, 0.3);
+}
+
+.pathTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.pathDescription {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.progressBar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.progressLabel {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.progressPercent {
+    color: var(--accent-purple);
+    font-weight: 700;
+}
+
+.progressTrack {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: var(--primary-gradient);
+    border-radius: var(--radius-full);
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.techBadge {
+    font-size: 12px;
+    padding: 6px 12px;
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    border-radius: var(--radius-sm);
+    color: var(--accent-purple);
+    font-weight: 500;
+}
+
+.cta {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    padding: 50px;
+    backdrop-filter: blur(20px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-gradient);
+}
+
+.ctaContent {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ctaTitle {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 16px 0;
+}
+
+.ctaText {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .learning {
+        padding: 60px 20px;
+    }
+
+    .learningGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .learningCard {
+        padding: 25px;
+    }
+
+    .cta {
+        padding: 30px 20px;
+    }
+}

@@ -1,0 +1,85 @@
+:root {
+    /* Premium Orange & White Palette */
+    --primary-gradient: linear-gradient(135deg, #FF6B35 0%, #FF8E53 50%, #FFA07A 100%);
+    --secondary-gradient: linear-gradient(135deg, #FFB347 0%, #FFCC5C 100%);
+    --accent-gradient: linear-gradient(135deg, #FF7F50 0%, #FF6347 100%);
+    --dark-gradient: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+
+    /* Sophisticated Backgrounds */
+    --bg-primary: #FAFAFA;
+    --bg-secondary: #FFFFFF;
+    --bg-tertiary: #FFF8F5;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #FFFAF7;
+    --bg-overlay: rgba(255, 255, 255, 0.98);
+
+    /* Rich Text Colors */
+    --text-primary: #1A1A1A;
+    --text-secondary: #4A5568;
+    --text-muted: #718096;
+    --text-light: #A0AEC0;
+
+    /* Vibrant Orange Accents */
+    --orange-50: #FFF5F0;
+    --orange-100: #FFE8DC;
+    --orange-200: #FFD1B8;
+    --orange-300: #FFB994;
+    --orange-400: #FFA270;
+    --orange-500: #FF6B35;
+    --orange-600: #E85D2C;
+    --orange-700: #D14F23;
+    --orange-800: #BA411A;
+    --orange-900: #A33311;
+
+    /* Spacing System */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+    --spacing-4xl: 6rem;
+
+    /* Border Radius */
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-2xl: 24px;
+    --radius-3xl: 32px;
+    --radius-full: 9999px;
+
+    /* Premium Shadows */
+    --shadow-xs: 0 1px 2px rgba(255, 107, 53, 0.05);
+    --shadow-sm: 0 2px 4px rgba(255, 107, 53, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 8px rgba(255, 107, 53, 0.12), 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 8px 16px rgba(255, 107, 53, 0.16), 0 4px 8px rgba(0, 0, 0, 0.08);
+    --shadow-xl: 0 12px 24px rgba(255, 107, 53, 0.20), 0 6px 12px rgba(0, 0, 0, 0.10);
+    --shadow-2xl: 0 20px 40px rgba(255, 107, 53, 0.24), 0 10px 20px rgba(0, 0, 0, 0.12);
+    --shadow-glow: 0 0 20px rgba(255, 107, 53, 0.3), 0 0 40px rgba(255, 107, 53, 0.15);
+    --shadow-glow-lg: 0 0 30px rgba(255, 107, 53, 0.4), 0 0 60px rgba(255, 107, 53, 0.2);
+
+    /* Transitions */
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Borders */
+    --border-width: 1px;
+    --border-width-thick: 2px;
+    --border-color: rgba(255, 107, 53, 0.12);
+    --border-color-hover: rgba(255, 107, 53, 0.3);
+    --border-color-focus: rgba(255, 107, 53, 0.5);
+
+    /* Z-index layers */
+    --z-base: 1;
+    --z-dropdown: 1000;
+    --z-sticky: 1100;
+    --z-fixed: 1200;
+    --z-modal: 1300;
+    --z-popover: 1400;
+    --z-tooltip: 1500;
+}

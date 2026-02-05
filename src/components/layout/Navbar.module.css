@@ -1,0 +1,412 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+  box-shadow: 0 4px 24px rgba(255, 107, 53, 0.08);
+  transition: all 0.3s ease;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.navContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  gap: 32px;
+}
+
+/* Premium Logo */
+.logo {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logoIconWrapper {
+  position: relative;
+}
+
+.logoIcon {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoBadge {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8E53 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.logoBadge::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent);
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+.logo:hover .logoBadge {
+  transform: rotate(-5deg) scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.logoInitials {
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 1;
+}
+
+.logoAccent {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  background: #FFA07A;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+}
+
+.logoTextWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logoName {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1A1A1A;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.logoSubtext {
+  font-size: 11px;
+  font-weight: 600;
+  color: #FF6B35;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* Premium Desktop Menu */
+.desktopMenu {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .desktopMenu {
+    display: flex;
+  }
+}
+
+.navBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4A5568;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.navBtn:hover {
+  background: rgba(255, 107, 53, 0.08);
+  color: #FF6B35;
+}
+
+.navBtn.active {
+  color: #FF6B35;
+  background: rgba(255, 107, 53, 0.1);
+}
+
+.navIcon {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.navBtn:hover .navIcon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.navText {
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  background: linear-gradient(90deg, #FF6B35, #FF8E53);
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 -2px 8px rgba(255, 107, 53, 0.3);
+}
+
+/* Premium Mobile Menu Button */
+.mobileMenuBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: white;
+  border: 2px solid rgba(255, 107, 53, 0.15);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.08);
+}
+
+@media (min-width: 1024px) {
+  .mobileMenuBtn {
+    display: none;
+  }
+}
+
+.mobileMenuBtn:hover {
+  background: rgba(255, 107, 53, 0.05);
+  border-color: rgba(255, 107, 53, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.12);
+}
+
+.mobileMenuBtn.active {
+  background: rgba(255, 107, 53, 0.1);
+  border-color: #FF6B35;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 24px;
+}
+
+.hamburgerLine {
+  width: 100%;
+  height: 2px;
+  background: #FF6B35;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.mobileMenuBtn.active .hamburgerLine:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobileMenuBtn.active .hamburgerLine:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.mobileMenuBtn.active .hamburgerLine:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Premium Mobile Menu */
+.mobileMenu {
+  overflow: hidden;
+  background: white;
+  border-top: 1px solid rgba(255, 107, 53, 0.1);
+  box-shadow: 0 8px 24px rgba(255, 107, 53, 0.12);
+}
+
+@media (min-width: 1024px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+
+.mobileNavBtn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 18px 24px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 107, 53, 0.08);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.mobileNavBtn:last-child {
+  border-bottom: none;
+}
+
+.mobileNavBtn:hover {
+  background: rgba(255, 107, 53, 0.05);
+  padding-left: 32px;
+}
+
+.mobileNavBtn.activeMobile {
+  background: rgba(255, 107, 53, 0.1);
+  border-left: 4px solid #FF6B35;
+}
+
+.mobileNavIcon {
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.mobileNavBtn:hover .mobileNavIcon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.mobileNavText {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4A5568;
+  letter-spacing: 0.3px;
+}
+
+.mobileNavBtn.activeMobile .mobileNavText {
+  color: #FF6B35;
+}
+
+.mobileActiveIndicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #FF6B35, #FF8E53);
+  box-shadow: 2px 0 8px rgba(255, 107, 53, 0.3);
+}
+
+/* Scroll Effect */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 8px 32px rgba(255, 107, 53, 0.12);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navContent {
+    height: 70px;
+    padding: 0 16px;
+  }
+
+  .logoName {
+    font-size: 16px;
+  }
+
+  .logoSubtext {
+    font-size: 10px;
+  }
+
+  .logoBadge {
+    width: 42px;
+    height: 42px;
+  }
+
+  .logoInitials {
+    font-size: 18px;
+  }
+
+  .mobileMenuBtn {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Premium Animations */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Accessibility */
+.navBtn:focus-visible,
+.mobileMenuBtn:focus-visible,
+.mobileNavBtn:focus-visible {
+  outline: 2px solid #FF6B35;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .navbar {
+    display: none;
+  }
+}

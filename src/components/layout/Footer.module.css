@@ -1,0 +1,34 @@
+.footer {
+  padding: 64px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.copyright {
+  color: #9ca3af;
+  font-size: 1.125rem;
+}
+
+.built {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.location {
+  padding-top: 16px;
+}
+
+.location span {
+  color: #818cf8;
+  font-weight: 500;
+}

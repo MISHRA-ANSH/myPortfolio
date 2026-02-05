@@ -1,0 +1,141 @@
+.education {
+  padding: 100px 20px;
+  background: linear-gradient(180deg, transparent 0%, rgba(102, 126, 234, 0.03) 50%, transparent 100%);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.sectionLabel {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-purple);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent-purple), var(--accent-pink));
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 40px;
+  transition: all var(--transition-base);
+}
+
+.timelineDot {
+  position: absolute;
+  left: -33px;
+  top: 20px;
+  width: 16px;
+  height: 16px;
+  background: var(--primary-gradient);
+  border-radius: 50%;
+  border: 3px solid var(--bg-primary);
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+}
+
+.eduCard {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  backdrop-filter: blur(20px);
+  display: flex;
+  gap: 20px;
+  transition: all var(--transition-base);
+}
+
+.eduCard:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+}
+
+.eduIcon {
+  font-size: 40px;
+  flex-shrink: 0;
+}
+
+.eduContent {
+  flex: 1;
+}
+
+.degree {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+}
+
+.school {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin: 0 0 12px 0;
+}
+
+.eduMeta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.years,
+.grade {
+  font-size: 14px;
+  padding: 6px 12px;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: var(--radius-sm);
+  color: var(--accent-purple);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .education {
+    padding: 60px 20px;
+  }
+
+  .timeline {
+    padding-left: 30px;
+  }
+
+  .eduCard {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
