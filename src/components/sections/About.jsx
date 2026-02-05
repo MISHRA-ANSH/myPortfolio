@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { motion } from 'framer-motion';
 import styles from './About.module.css';
 
@@ -18,7 +18,7 @@ const About = memo(function About() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
@@ -52,7 +52,7 @@ const About = memo(function About() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           {/* Section Header */}
           <motion.div className={styles.header} variants={itemVariants}>
@@ -82,11 +82,6 @@ const About = memo(function About() {
                 <p className={styles.bioText}>
                   I have hands-on experience with <span className={styles.highlight}>Java programming</span> and
                   object-oriented concepts. Beyond coding, I've served as a <span className={styles.highlight}>Placement Coordinator</span> and
-                  <span className={styles.highlight}> Event Coordinator</span>, which has honed my leadership
-                  and organizational skills. I also participated in the <span className={styles.highlight}>HACK-IT-ON Hackathon 2024</span>.
-                </p>
-                <p className={styles.bioText}>
-                  Beyond coding, I've served as a <span className={styles.highlight}>Placement Coordinator</span> and
                   <span className={styles.highlight}> Event Coordinator</span>, which has honed my leadership
                   and organizational skills. I also participated in the <span className={styles.highlight}>HACK-IT-ON Hackathon 2024</span>.
                 </p>
@@ -125,7 +120,7 @@ const About = memo(function About() {
                   className={styles.featureCard}
                   variants={itemVariants}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
                   <div className={styles.featureIcon}>{feature.icon}</div>
                   <h4 className={styles.featureTitle}>{feature.title}</h4>

@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Skills.module.css';
 import { skills } from '../../utils/data';
@@ -19,7 +19,7 @@ const Skills = memo(function Skills() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
@@ -63,7 +63,7 @@ const Skills = memo(function Skills() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           {/* Section Header */}
           <motion.div className={styles.header} variants={cardVariants}>
@@ -82,7 +82,7 @@ const Skills = memo(function Skills() {
                 className={styles.skillCard}
                 variants={cardVariants}
                 whileHover={{ y: -10, scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <div className={styles.cardHeader}>
                   <motion.div
@@ -105,7 +105,6 @@ const Skills = memo(function Skills() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: idx * 0.05, duration: 0.4 }}
-                      whileHover={{ x: 5 }}
                     >
                       <span className={styles.skillDot} style={{ background: category.gradient }}></span>
                       <span className={styles.skillName}>{skill}</span>
