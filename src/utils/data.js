@@ -4,7 +4,7 @@ export const profileData = {
   email: "anshmotivation@gmail.com",
   phone: "+917088760893",
   location: "Kanpur, Uttar Pradesh",
-  linkedin: "https://www.linkedin.com/in/ansh-mishra",
+  linkedin: "https://www.linkedin.com/in/anshsmishra",
   github: "https://github.com/MISHRA-ANSH",
   hackerrank: "#",
   leetcode: "#",

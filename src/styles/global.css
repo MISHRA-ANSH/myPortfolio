@@ -47,11 +47,11 @@ p {
 
 code {
   font-family: 'Fira Code', 'Courier New', monospace;
-  background: var(--orange-50);
+  background: var(--cyan-900);
   padding: 2px 6px;
   border-radius: var(--radius-xs);
   font-size: 0.9em;
-  color: var(--orange-700);
+  color: var(--cyan-300);
 }
 
 /* Links & Buttons */
@@ -71,7 +71,7 @@ button {
 
 button:focus,
 a:focus {
-  outline: 2px solid var(--orange-500);
+  outline: 2px solid var(--cyan-500);
   outline-offset: 2px;
 }
 
@@ -86,23 +86,23 @@ a:focus {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--orange-400), var(--orange-600));
+  background: linear-gradient(180deg, var(--cyan-600), var(--cyan-700));
   border-radius: var(--radius-full);
   border: 2px solid var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--orange-500), var(--orange-700));
+  background: linear-gradient(180deg, var(--cyan-500), var(--cyan-600));
 }
 
 /* Selection */
 ::selection {
-  background: var(--orange-500);
+  background: var(--cyan-600);
   color: white;
 }
 
 ::-moz-selection {
-  background: var(--orange-500);
+  background: var(--cyan-600);
   color: white;
 }
 
@@ -261,20 +261,20 @@ a:focus {
 }
 
 .btn-secondary {
-  background: white;
-  color: var(--orange-600);
+  background: var(--bg-secondary);
+  color: var(--cyan-400);
   padding: 14px 32px;
   border-radius: var(--radius-full);
   font-weight: 600;
   font-size: 16px;
-  border: 2px solid var(--orange-200);
+  border: 2px solid var(--cyan-700);
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-base);
 }
 
 .btn-secondary:hover {
-  background: var(--orange-50);
-  border-color: var(--orange-400);
+  background: var(--bg-tertiary);
+  border-color: var(--cyan-500);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -301,19 +301,19 @@ a:focus {
   align-items: center;
   gap: 6px;
   padding: 6px 14px;
-  background: var(--orange-50);
-  border: var(--border-width) solid var(--orange-200);
+  background: var(--cyan-900);
+  border: var(--border-width) solid var(--cyan-700);
   border-radius: var(--radius-full);
   font-size: 13px;
   font-weight: 600;
-  color: var(--orange-700);
+  color: var(--cyan-300);
 }
 
 /* Loading States */
 .skeleton {
   background: linear-gradient(90deg,
       var(--bg-secondary) 0%,
-      var(--orange-50) 50%,
+      var(--bg-tertiary) 50%,
       var(--bg-secondary) 100%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
@@ -335,7 +335,7 @@ a:focus {
 
 /* Focus Visible */
 :focus-visible {
-  outline: 2px solid var(--orange-500);
+  outline: 2px solid var(--cyan-500);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
@@ -350,4 +350,72 @@ a:focus {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Light Theme Support */
+[data-theme="light"] {
+  --bg-primary: #F1F5F9;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #E2E8F0;
+  --bg-card: rgba(255, 255, 255, 0.8);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --bg-overlay: rgba(241, 245, 249, 0.98);
+
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+
+  --border-color: rgba(6, 182, 212, 0.2);
+  --border-color-hover: rgba(6, 182, 212, 0.4);
+  --border-color-focus: rgba(6, 182, 212, 0.6);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.16), 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.20), 0 6px 12px rgba(0, 0, 0, 0.16);
+  --shadow-2xl: 0 20px 40px rgba(0, 0, 0, 0.24), 0 10px 20px rgba(0, 0, 0, 0.20);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #E2E8F0;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #06B6D4, #0891B2);
+  border: 2px solid #E2E8F0;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #0EA5E9, #06B6D4);
+}
+
+[data-theme="light"] code {
+  background: #E0F2FE;
+  color: #0369A1;
+}
+
+/* Ripple Effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(6, 182, 212, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::after {
+  width: 300px;
+  height: 300px;
 }

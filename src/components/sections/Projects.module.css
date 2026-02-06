@@ -47,22 +47,73 @@
   gap: 30px;
 }
 
+.projectCardWrapper {
+  perspective: 1000px;
+}
+
 .projectCard {
-  background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(6, 182, 212, 0.2);
   border-radius: var(--radius-xl);
   padding: 35px;
-  backdrop-filter: blur(20px);
   transition: all var(--transition-base);
   display: flex;
   flex-direction: column;
   gap: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.projectCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-xl);
+  padding: 2px;
+  background: linear-gradient(135deg, #06B6D4, #0EA5E9, #3B82F6);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  animation: rotate-gradient 3s linear infinite;
+}
+
+.projectCard:hover::before {
+  opacity: 1;
+}
+
+@keyframes rotate-gradient {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.cardGlow {
+  position: absolute;
+  inset: -100px;
+  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.projectCard:hover .cardGlow {
+  opacity: 1;
 }
 
 .projectCard:hover {
-  background: var(--bg-card-hover);
-  border-color: rgba(102, 126, 234, 0.3);
-  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 20px 60px rgba(6, 182, 212, 0.3), 0 0 40px rgba(6, 182, 212, 0.1);
+  transform: translateZ(20px);
 }
 
 .projectHeader {
@@ -110,7 +161,7 @@
 .githubLink:hover {
   background: var(--primary-gradient);
   border-color: transparent;
-  color: white;
+  color: #1E293B;
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
@@ -136,11 +187,20 @@
 .techTag {
   font-size: 12px;
   padding: 6px 12px;
-  background: rgba(102, 126, 234, 0.1);
-  border: 1px solid rgba(102, 126, 234, 0.2);
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.2);
   border-radius: var(--radius-sm);
-  color: var(--accent-purple);
+  color: #22D3EE;
   font-weight: 500;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.techTag:hover {
+  background: rgba(6, 182, 212, 0.2);
+  border-color: rgba(6, 182, 212, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(6, 182, 212, 0.2);
 }
 
 .highlights {

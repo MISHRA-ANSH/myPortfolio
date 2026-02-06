@@ -1,0 +1,105 @@
+.skeletonContainer {
+    padding: 80px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.skeletonHeader {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.skeletonLabel {
+    width: 120px;
+    height: 20px;
+    background: linear-gradient(90deg, #1E293B 25%, #334155 50%, #1E293B 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
+    margin: 0 auto 16px;
+}
+
+.skeletonTitle {
+    width: 300px;
+    height: 40px;
+    background: linear-gradient(90deg, #1E293B 25%, #334155 50%, #1E293B 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 12px;
+    margin: 0 auto 16px;
+}
+
+.skeletonSubtitle {
+    width: 400px;
+    height: 24px;
+    background: linear-gradient(90deg, #1E293B 25%, #334155 50%, #1E293B 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.skeletonGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+.skeletonCard {
+    background: #1E293B;
+    border-radius: 20px;
+    padding: 32px;
+    border: 1px solid #334155;
+}
+
+.skeletonCardHeader {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(90deg, #334155 25%, #475569 50%, #334155 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.skeletonCardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.skeletonLine {
+    height: 16px;
+    background: linear-gradient(90deg, #334155 25%, #475569 50%, #334155 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
+}
+
+.skeletonLine:nth-child(1) {
+    width: 80%;
+}
+
+.skeletonLine:nth-child(2) {
+    width: 100%;
+}
+
+.skeletonLine:nth-child(3) {
+    width: 60%;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .skeletonSubtitle {
+        width: 90%;
+    }
+}

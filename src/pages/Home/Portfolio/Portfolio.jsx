@@ -2,6 +2,8 @@ import { useState, useEffect, useRef, useCallback, lazy, Suspense } from 'react'
 import styles from './Portfolio.module.css';
 import Navbar from '../../../components/layout/Navbar';
 import Hero from '../../../components/sections/Hero';
+import LoadingSkeleton from '../../../components/ui/LoadingSkeleton';
+import { useCursorParticles } from '../../../hooks/useCursorParticles';
 
 // Lazy load sections for better initial load
 const About = lazy(() => import('../../../components/sections/About'));
@@ -15,6 +17,9 @@ const Footer = lazy(() => import('../../../components/layout/Footer'));
 function Portfolio() {
   const [activeSection, setActiveSection] = useState('about');
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Enable cursor particles
+  useCursorParticles();
 
   const sectionRefs = {
     about: useRef(null),
@@ -79,7 +84,7 @@ function Portfolio() {
       <div className={styles.content}>
         <Hero />
 
-        <Suspense fallback={<div className={styles.loading}>Loading...</div>}>
+        <Suspense fallback={<LoadingSkeleton />}>
           <section className={styles.mainContent}>
             <div id="about" ref={sectionRefs.about} className={styles.section}>
               <About />

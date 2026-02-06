@@ -12,28 +12,108 @@ const Hero = memo(function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.2
+        staggerChildren: 0.08,
+        delayChildren: 0
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.34, 1.56, 0.64, 1] // Realistic bounce
+      }
     }
   };
 
   return (
     <section className={styles.hero}>
-      {/* Aesthetic Background */}
+      {/* Video-like Animated Background */}
       <div className={styles.bgAnimation}>
+        {/* Animated Gradient Waves */}
+        <div className={styles.gradientWaves}>
+          <div className={styles.wave1}></div>
+          <div className={styles.wave2}></div>
+          <div className={styles.wave3}></div>
+          <div className={styles.wave4}></div>
+          <div className={styles.wave5}></div>
+          <div className={styles.wave6}></div>
+          <div className={styles.wave7}></div>
+          <div className={styles.wave8}></div>
+        </div>
+
+        {/* Animated Gradient Mesh */}
+        <div className={styles.gradientMesh}>
+          <div className={styles.meshLayer1}></div>
+          <div className={styles.meshLayer2}></div>
+          <div className={styles.meshLayer3}></div>
+        </div>
+
+        {/* Floating Particles */}
+        <div className={styles.particles}>
+          {[...Array(100)].map((_, i) => (
+            <div key={i} className={styles.particle} style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 10}s`,
+              animationDuration: `${10 + Math.random() * 20}s`,
+              width: `${1.5 + Math.random() * 6}px`,
+              height: `${1.5 + Math.random() * 6}px`
+            }}></div>
+          ))}
+        </div>
+
+        {/* Extra Top Particles - Dense at top */}
+        <div className={styles.topParticles}>
+          {[...Array(80)].map((_, i) => (
+            <div key={i} className={styles.topParticle} style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 30}%`,
+              animationDelay: `${Math.random() * 8}s`,
+              animationDuration: `${8 + Math.random() * 15}s`,
+              width: `${1 + Math.random() * 4}px`,
+              height: `${1 + Math.random() * 4}px`,
+              opacity: 0.6 + Math.random() * 0.4
+            }}></div>
+          ))}
+        </div>
+
+        {/* Animated Light Beams */}
+        <div className={styles.lightBeams}>
+          <div className={styles.beam1}></div>
+          <div className={styles.beam2}></div>
+          <div className={styles.beam3}></div>
+          <div className={styles.beam4}></div>
+          <div className={styles.beam5}></div>
+          <div className={styles.beam6}></div>
+          <div className={styles.beam7}></div>
+          <div className={styles.beam8}></div>
+          <div className={styles.beam9}></div>
+          <div className={styles.beam10}></div>
+        </div>
+
+        {/* Animated Orbs */}
         <div className={styles.bgOrb1} />
         <div className={styles.bgOrb2} />
+        <div className={styles.bgOrb3} />
+        <div className={styles.bgOrb4} />
+        <div className={styles.bgOrb5} />
+        <div className={styles.bgOrb6} />
+        <div className={styles.bgOrb7} />
+        <div className={styles.bgOrb8} />
+        <div className={styles.bgOrb9} />
+        <div className={styles.bgOrb10} />
+
+        {/* Animated Grid */}
         <div className={styles.bgGrid}></div>
+
+        {/* Noise Texture Overlay */}
+        <div className={styles.noiseOverlay}></div>
       </div>
 
       <div className={styles.container}>
@@ -190,7 +270,7 @@ const Hero = memo(function Hero() {
               {/* Floating Elements - Desktop Only */}
               <motion.div
                 className={styles.floatingElement}
-                style={{ top: '10%', right: '-10%' }}
+                style={{ top: '5%', right: '-5%' }}
                 animate={{ y: [0, -15, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
@@ -199,7 +279,7 @@ const Hero = memo(function Hero() {
 
               <motion.div
                 className={styles.floatingElement}
-                style={{ bottom: '15%', left: '-10%' }}
+                style={{ bottom: '10%', left: '-5%' }}
                 animate={{ y: [0, 15, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               >
@@ -208,7 +288,7 @@ const Hero = memo(function Hero() {
 
               <motion.div
                 className={styles.floatingElement}
-                style={{ top: '50%', right: '-15%' }}
+                style={{ top: '45%', right: '-5%' }}
                 animate={{ y: [0, -12, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               >

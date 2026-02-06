@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import styles from './Skills.module.css';
 import { skills } from '../../utils/data';
 
@@ -15,10 +15,11 @@ const Skills = memo(function Skills() {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
     visible: {
       opacity: 1,
       y: 0,
+      filter: 'blur(0px)',
       transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
     }
   };
@@ -56,6 +57,50 @@ const Skills = memo(function Skills() {
     }
   ];
 
+  // 3D Tilt Effect Component
+  const TiltCard = ({ children, className }) => {
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    const mouseXSpring = useSpring(x);
+    const mouseYSpring = useSpring(y);
+
+    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7.5deg", "-7.5deg"]);
+    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7.5deg", "7.5deg"]);
+
+    const handleMouseMove = (e) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const width = rect.width;
+      const height = rect.height;
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      const xPct = mouseX / width - 0.5;
+      const yPct = mouseY / height - 0.5;
+      x.set(xPct);
+      y.set(yPct);
+    };
+
+    const handleMouseLeave = () => {
+      x.set(0);
+      y.set(0);
+    };
+
+    return (
+      <motion.div
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
+        }}
+        className={className}
+      >
+        {children}
+      </motion.div>
+    );
+  };
+
   return (
     <section className={styles.skills} id="skills">
       <div className={styles.container}>
@@ -77,41 +122,44 @@ const Skills = memo(function Skills() {
           {/* Skills Grid */}
           <div className={styles.skillsGrid}>
             {skillCategories.map((category, index) => (
-              <motion.div
-                key={index}
-                className={styles.skillCard}
-                variants={cardVariants}
-                whileHover={{ y: -10, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <div className={styles.cardHeader}>
-                  <motion.div
-                    className={styles.iconWrapper}
-                    style={{ background: category.gradient }}
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <span className={styles.icon}>{category.icon}</span>
-                  </motion.div>
-                  <h3 className={styles.categoryName}>{category.name}</h3>
-                </div>
-
-                <div className={styles.skillsList}>
-                  {category.skills.map((skill, idx) => (
+              <TiltCard key={index} className={styles.skillCardWrapper}>
+                <motion.div
+                  className={styles.skillCard}
+                  variants={cardVariants}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <div className={styles.cardGlow}></div>
+                  <div className={styles.cardHeader}>
                     <motion.div
-                      key={idx}
-                      className={styles.skillItem}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.05, duration: 0.4 }}
+                      className={styles.iconWrapper}
+                      style={{ background: category.gradient }}
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
                     >
-                      <span className={styles.skillDot} style={{ background: category.gradient }}></span>
-                      <span className={styles.skillName}>{skill}</span>
+                      <span className={styles.icon}>{category.icon}</span>
                     </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+                    <h3 className={styles.categoryName}>{category.name}</h3>
+                  </div>
+
+                  <div className={styles.skillsList}>
+                    {category.skills.map((skill, idx) => (
+                      <motion.div
+                        key={idx}
+                        className={styles.skillItem}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.05, duration: 0.4 }}
+                        whileHover={{ x: 5, scale: 1.05 }}
+                      >
+                        <span className={styles.skillDot} style={{ background: category.gradient }}></span>
+                        <span className={styles.skillName}>{skill}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              </TiltCard>
             ))}
           </div>
 
